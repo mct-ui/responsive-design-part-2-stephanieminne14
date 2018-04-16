@@ -183,6 +183,13 @@ a:visited, a:active, a:hover, a:focus {
   padding: 24px 24px 0;
 }
 
+/* color modifier */
+
+.o-row--gradient {
+  background: linear-gradient(to right top, #5051db 0%, #3887F7 100%);
+  color: white,
+}
+
 /* size modifiers */
 
 .o-row--lg {
@@ -632,13 +639,100 @@ a:visited, a:active, a:hover, a:focus {
   color: #7373F5;
 }
 
-.c-link-cta::after {}
+.c-link-cta::after {
+  content: "";
+}
+
+.c-link-cta::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #7373f5;
+  transform: scaleX(.5);
+  transform-origin: left;
+  transition-property: transform background-color;
+  transition-duration: .175s;
+  transition-timing-function: ease-in;
+}
 
 .c-link-cta:hover {
   color: #3E3EA8;
 }
 
-.c-link-cta:hover::after {}
+.c-link-cta:hover::after {
+  content: "";
+  transform: scaleX(1);
+  /* background-color: #3e3ea8; */
+}
+
+/* invered */
+
+.c-link-cta--inverse, .c-link-cta--inverse:visited, .c-link-cta--inverse:active {
+  color: #fff;
+}
+
+.c-link-cta--inversed::after {
+  background-color: #fff;
+}
+
+.c-link-cta--inverse:hover::after {
+  background-color: #fff;
+}
+
+/*
+    Component: footer
+    ---
+    Main footer of the website
+*/
+
+.c-footer {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-footer__logo {}
+
+.c-footer__nav {
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .c-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  .c-footer__logo {
+    flex-direction: column;
+  }
+  .c-footer__nav {
+    display: block;
+    order: 2;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  .c-footer__logo {
+    order: 2,
+  }
+  .c-footer__logo .c-logo {}
+  .c-footer__nav {
+    display: inline;
+  }
+}
 
 /*
     Utility: Widths
